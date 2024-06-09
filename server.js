@@ -18,7 +18,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-app.use('/Styles', express.static(path.join(__dirname, 'Styles')));
+app.use('/styles', express.static(path.join(__dirname, 'styles')));
 var auth = function(req, res, next){
     if (req.session && req.session.user) {
         return next();
