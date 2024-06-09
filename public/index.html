@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenido a PixelMeet</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="Styles/estiloInicioPrincipal.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script/script_login.js"></script>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-box">
+        <img src="images/logo.png" alt="PixelMeet Logo" class="logo">
+        <h1>Bienvenido a PixelMeet</h1>
+        <form class="form">
+            <div class="form-group">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" required>
+            </div>
+            <button type="button" onclick="iniciarSesion()">Iniciar Sesión</button>
+        </form>
+        <p>¿No tienes una cuenta? <a href="/registro">Regístrate</a></p>
+    </div>
+</div>
+</body>
+</html>

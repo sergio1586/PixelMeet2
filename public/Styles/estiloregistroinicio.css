@@ -1,0 +1,212 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/fondo2.webp');
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+body::-webkit-scrollbar { 
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #569ce3;
+  border-radius: 4px;
+}
+
+.menu-lateral {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  min-height: 100vh; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-lateral .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.menu-lateral .nav-link:hover {
+  background-color: #f3d462;
+}
+
+.icono-nav {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.contenido {
+  margin-left: 80px;
+  padding: 20px;
+  width: calc(100% - 80px);
+}
+
+h2, h3 {
+  color: #333;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 500px !important;
+  margin: 20px auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  color: #333;
+  box-shadow: none;
+}
+
+
+
+/* Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: rgba(210, 105, 30, 0.7); /* Naranja/marrón con transparencia */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(5px); /* Desenfoque de fondo */
+}
+
+.tag:hover {
+  background-color: rgba(139, 69, 19, 0.8); /* Más oscuro al pasar el ratón */
+  transform: translateY(-2px);
+}
+
+.tag.selected {
+  background-color: rgba(139, 69, 19, 1) !important; /* Más oscuro al estar seleccionado */
+  transform: scale(1.1);
+}
+
+/* Button styles */
+button[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(210, 105, 30, 0.7); /* Naranja/marrón con transparencia */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(5px); /* Desenfoque de fondo */
+}
+
+button[type="button"]:hover {
+  background-color: rgba(139, 69, 19, 0.8); /* Más oscuro al pasar el ratón */
+  transform: translateY(-2px);
+}
+
+button[type="button"]:active {
+  background-color: rgba(139, 69, 19, 1); /* Más oscuro al estar pulsado */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.tag.selected {
+  background-color: #0056b3;
+}
+
+@media (max-width: 767px) {
+  .menu-lateral {
+      width: 100%;
+      position: relative;
+      min-height: auto;
+  }
+
+  .contenido {
+      margin-left: 0;
+      width: 100%;
+      padding: 10px;
+  }
+
+  .container {
+      width: 90%;
+      max-width: 100%;
+      margin: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .menu-lateral {
+      width: 200px;
+  }
+
+  .contenido {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+  }
+
+  .container {
+      width: 70%;
+      max-width: 400px;
+  }
+}

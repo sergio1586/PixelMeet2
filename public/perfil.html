@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Usuario - PixelMeet</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/styles/estiloPRINCIPAL.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/script/scriptPerfilUsuario.js"></script>
+</head>
+<body>
+    <div class="d-flex">
+        <nav class="menu-lateral">
+            <a href="/feed" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right" title="Inicio">
+                <img src="/images/pagina-de-inicio.png" alt="Inicio" class="icono-nav">
+            </a>
+            <a href="/home" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right" title="Perfil">
+                <img src="/images/usuario.png" alt="Perfil" class="icono-nav">
+            </a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#uploadModal" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right" title="Subir foto">
+                <img src="/images/camara.png" alt="Subir foto" class="icono-nav">
+            </a>
+            <a href="/configuracion" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="right" title="Perfil">
+                <img src="/images/configuracion.png" alt="Perfil" class="icono-nav">
+            </a>
+        </nav>
+        <main class="contenido flex-grow-1">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-auto d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center">
+                            <img id="fotoperfil" class="perfil-foto me-3" alt="Foto de perfil"/>
+                            <div class="datos">
+                                <div class="d-flex align-items-center">
+                                    <h2 id="nick_usuario" class="me-2"></h2>
+                                    <button id="followButton" class="follow-btn btn btn-primary btn-sm">
+                                        <img id="followIcon" src="/images/seguir.png" alt="Seguir" />
+                                    </button>
+                                </div>
+                                <div id="counters" class="d-flex stat-line">
+                                    <p id="publicaciones">0 publicaciones</p>
+                                    <p id="seguidores">0 seguidores</p>
+                                    <p id="seguidos">0 seguidos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-center mt-4">Publicaciones</h3>
+                <div class="row" id="galeria">
+                    <!-- Aquí se mostrarán las imágenes recuperadas de la base de datos -->
+                </div>
+            </div>
+            
+        </main>
+    </div>
+
+    <!-- Modal para subir imágenes -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadModalLabel">Subir Imagen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="inputImagen" class="form-label">Selecciona una imagen</label>
+                        <input type="file" class="form-control" id="inputImagen" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="inputDescripcion" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria" class="form-label">Categoría</label>
+                        <select class="form-control" id="categoria" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="landscape">Paisaje</option>
+                            <option value="retrato">Retrato</option>
+                            <option value="macro">Macro</option>
+                            <option value="arquitectura">Arquitectura</option>
+                            <option value="naturaleza">Naturaleza</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="subirImagen()">Subir Imagen</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!-- Modal para ver imágenes en grande -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content p-0 border-0">
+            <div class="modal-body p-0">
+                <div class="row">
+                    <div class="col-md-8 p-0 text-center">
+                        <img id="modalImage" class="img-fluid" alt="Imagen grande"/>
+                    </div>
+                    <div class="col-md-4">
+                        <div id="modalUserProfile" class="d-flex align-items-center p-3">
+                            <a id="modalUserProfileLink" href="" class="ms-2">@username</a>
+                        </div>
+                        <div id="modalDescription" class="p-3"></div>
+                        <div class="d-flex justify-content-start align-items-center px-3">
+                            <button id="modalLikeButton" class="btn like-button">
+                                <img src="/images/me-gusta2.png" alt="Me gusta">
+                            </button>
+                            <button id="modalDownloadButton" class="btn download-button ms-2">
+                               
+                            </button>
+                        </div>
+                        <div id="modalComments" class="p-3"></div>
+                        <div id="modalCommentInput" class="p-3 d-flex align-items-center">
+                            <textarea id="modalCommentBox" class="form-control comment-box" placeholder="Añade un comentario..."></textarea>
+                            <button id="modalCommentSubmitButton" class="btn comment-submit-button">
+                                <img src="/images/enviar.png" alt="Enviar" class="submit-button-image">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary mt-3" data-bs-dismiss="modal">
+                    <img src="/images/cerrar-simbolo.png" alt="cerrar">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

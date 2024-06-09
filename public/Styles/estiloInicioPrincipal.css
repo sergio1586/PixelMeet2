@@ -1,0 +1,206 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../images/fondo.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+/* Login container */
+.login-container, .registration-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+.form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button[type="button"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button[type="button"]:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+/* Link styles */
+a {
+    color: #28a745;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Plan cards */
+.plan-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.plan-card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.plan-card.selected-plan {
+    border: 2px solid #28a745;
+}
+
+.plan-card h4 {
+    margin-bottom: 10px;
+}
+
+.plan-card p {
+    margin-bottom: 15px;
+}
+
+.select-plan {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.select-plan:hover {
+    background-color: #218838;
+}
+
+/* Tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.tag.selected {
+    background-color: #1e7e34;
+    transform: scale(1.1);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-container, .registration-container {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    button[type="button"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .plan-card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .plan-cards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container, .registration-container {
+        padding: 15px;
+    }
+
+    .logo {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+
+    button[type="button"] {
+        padding: 8px;
+        font-size: 12px;
+    }
+}

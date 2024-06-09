@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="Styles/estiloInicioPrincipal.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script/script_registro.js"></script>
+</head>
+<body>
+    <div class="registration-container">
+        <img src="images/logo.png" alt="PixelMeet Logo" class="logo">
+        <h2>Registro</h2>
+        <div class="form">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label for="nickUsuario">Nick de usuario:</label>
+                <input type="text" id="nickUsuario" name="nickUsuario" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" max="2006-01-01" required>
+            </div>
+            <div class="form-group tags-group">
+                <label for="etiquetas">Etiquetas (Hobbies relacionados con las fotografías):</label>
+                <div id="etiquetas" class="tags-container">
+                    <button class="tag" data-tag="landscape">Landscape</button>
+                    <button class="tag" data-tag="retrato">Retrato</button>
+                    <button class="tag" data-tag="macro">Macro</button>
+                    <button class="tag" data-tag="arquitectura">Arquitectura</button>
+                    <button class="tag" data-tag="naturaleza">Naturaleza</button>
+                </div>
+            </div>
+            <h3>Selecciona tu Plan de Descarga</h3>
+            <div class="plan-cards">
+                <div class="plan-card" data-plan="1">
+                    <h4>Plan Básico</h4>
+                    <p>10 descargas por día</p>
+                    <p><strong>Precio: Gratis</strong></p>
+                    <button class="select-plan">Seleccionar</button>
+                </div>
+                <div class="plan-card" data-plan="2">
+                    <h4>Plan Estándar</h4>
+                    <p>25 descargas por día</p>
+                    <p><strong>Precio: $9.99/mes</strong></p>
+                    <button class="select-plan">Seleccionar</button>
+                </div>
+                <div class="plan-card" data-plan="3">
+                    <h4>Plan Premium</h4>
+                    <p>Descargas ilimitadas</p>
+                    <p><strong>Precio: $19.99/mes</strong></p>
+                    <button class="select-plan">Seleccionar</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" required>
+            </div>
+            <div class="form-group">
+                <label for="repetirContraseña">Repetir Contraseña:</label>
+                <input type="password" id="repetirContraseña" name="repetirContraseña" required>
+            </div>
+            <button type="button" onclick="registrarUsuario()">Registrarse</button>
+        </div>
+        <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión</a></p>
+    </div>
+</body>
+</html>
